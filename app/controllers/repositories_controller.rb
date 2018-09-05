@@ -11,7 +11,9 @@ class RepositoriesController < ApplicationController
       req.params['q'] = params[:query]
     end
     body_hash = JSON.parse(@resp.body)
-    binding.pry
+    if @resp.success?
+      binding.pry
+    end 
     render 'search'
   end
 end
